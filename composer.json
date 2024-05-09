@@ -1,0 +1,36 @@
+{
+    "name": "rodrigodelbem/olmec-low-stock",
+    "autoload": {
+        "psr-4": {
+            "Olmec\\LowStock\\": "src/"
+        },
+        "files": [
+            "src/defines.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "rdelbem",
+            "email": "rodrigodelbem@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "vimeo/psalm": "^5.23",
+        "phpcsstandards/php_codesniffer": "^3.9",
+        "pestphp/pest": "^2.34",
+        "mockery/mockery": "^1.6",
+        "humanmade/psalm-plugin-wordpress": "^3.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm --show-info=true",
+        "test": "vendor/bin/pest",
+        "lint": "vendor/bin/phpcs **/*.php",
+        "lint-fix": "vendor/bin/phpcbf **/*.php",
+        "wpcli": "cd ../.. && docker-compose run --rm wpcli wp"
+    }
+}
