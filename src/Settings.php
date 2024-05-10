@@ -8,16 +8,19 @@ if (!defined('ABSPATH')) {
 
 final class Settings
 {
-    public function addSettingsTab($settingsTab) {
+    public function addSettingsTab($settingsTab)
+    {
         $settingsTab['olmec_lowstock_options'] = __('Low stock by category', OLMEC_LOW_STOCK_TEXT_DOMAIN);
         return $settingsTab;
     }
 
-    public function addSettings(): void {
+    public function addSettings(): void
+    {
         woocommerce_admin_fields($this->getSettings());
     }
 
-    public function getSettings(): array {
+    public function getSettings(): array
+    {
         return [
             'section_title' => [
                 'name'     => __('Low Stock by Category Options', OLMEC_LOW_STOCK_TEXT_DOMAIN),
@@ -48,7 +51,8 @@ final class Settings
         ];
     }
 
-    public function saveSettings() {
+    public function saveSettings()
+    {
         woocommerce_update_options($this->getSettings());
     }
 }

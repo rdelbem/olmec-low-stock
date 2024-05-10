@@ -6,17 +6,19 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-use Olmec\LowStock\Notification; 
+use Olmec\LowStock\Notification;
 
-final class Stock {
-
+final class Stock
+{
     private Notification $notification;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->notification = new Notification();
     }
 
-    public function checkStockLevels(\WC_Order $order) {
+    public function checkStockLevels(\WC_Order $order)
+    {
         $categoryStock = get_option('olmec_categories_stock', []);
 
         foreach ($order->get_items() as $item) {
@@ -60,7 +62,8 @@ final class Stock {
         update_option('olmec_categories_stock', $categoryStock);
     }
 
-    public function getStockInfos() {
+    public function getStockInfos()
+    {
         $indexedCategories = get_option('olmec_categories_stock', []);
         $categoriesNamesAndStocks = [];
         foreach ($indexedCategories as $category => $stock) {
