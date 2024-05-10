@@ -13,14 +13,16 @@ use Olmec\LowStock\ActionHandler;
 use Olmec\LowStock\CategoryField;
 use Olmec\LowStock\Settings;
 
-final class CoreLoader extends ActionHandler {
+final class CoreLoader extends ActionHandler
+{
     private Notification $notificationManager;
     private Stock $stockManager;
     private CategoryField $categoryFieldManager;
     private Metabox $metabox;
     private Settings $settings;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->notificationManager = new Notification();
         $this->stockManager = new Stock();
         $this->categoryFieldManager = new CategoryField();
@@ -33,7 +35,8 @@ final class CoreLoader extends ActionHandler {
         $this->notificationManager->scheduleEvent();
     }
 
-    private function getActionHooks() {
+    private function getActionHooks()
+    {
         $hooks = [
             'product_cat_add_form_fields' => [
                 'instance' => $this->categoryFieldManager,
@@ -83,7 +86,7 @@ final class CoreLoader extends ActionHandler {
             ]
         ];
 
-        if(get_option('olmec_option_metabox') === 'yes'){
+        if (get_option('olmec_option_metabox') === 'yes') {
             $hooks['wp_dashboard_setup'] = [
                 'instance' => $this->metabox,
                 'method' => 'register'
@@ -93,7 +96,8 @@ final class CoreLoader extends ActionHandler {
         return $hooks;
     }
 
-    private function getFilterHooks() {
+    private function getFilterHooks()
+    {
         return [
             'woocommerce_settings_tabs_array' => [
                 'instance' => $this->settings,
