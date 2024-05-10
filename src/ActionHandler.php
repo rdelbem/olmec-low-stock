@@ -6,13 +6,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-abstract class ActionHandler {
+abstract class ActionHandler
+{
     /**
      * Process and register acction hooks based on an array of configurations.
      *
      * @param array $hooks Associative array of hook configurations, where each configuration can now include an 'instance' key.
      */
-    protected function registerHooks(array $hooks) {
+    protected function registerHooks(array $hooks)
+    {
         foreach ($hooks as $hook => $config) {
             $instance = $config['instance'] ?? $this;
             $method = $config['method'];
@@ -28,7 +30,8 @@ abstract class ActionHandler {
      *
      * @param array $hooks Associative array of hook configurations, where each configuration can now include an 'instance' key.
      */
-    protected function registerFilter(array $hooks) {
+    protected function registerFilter(array $hooks)
+    {
         foreach ($hooks as $hook => $config) {
             $instance = $config['instance'] ?? $this;
             $method = $config['method'];
