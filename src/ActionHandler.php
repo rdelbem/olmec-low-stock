@@ -2,10 +2,6 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 abstract class ActionHandler
 {
     /**
@@ -13,7 +9,7 @@ abstract class ActionHandler
      *
      * @param array $hooks Associative array of hook configurations, where each configuration can now include an 'instance' key.
      */
-    protected function registerHooks(array $hooks)
+    public function registerHooks(array $hooks)
     {
         foreach ($hooks as $hook => $config) {
             $instance = $config['instance'] ?? $this;
@@ -30,7 +26,7 @@ abstract class ActionHandler
      *
      * @param array $hooks Associative array of hook configurations, where each configuration can now include an 'instance' key.
      */
-    protected function registerFilter(array $hooks)
+    public function registerFilter(array $hooks)
     {
         foreach ($hooks as $hook => $config) {
             $instance = $config['instance'] ?? $this;

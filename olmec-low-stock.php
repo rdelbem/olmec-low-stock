@@ -29,5 +29,5 @@ if(!class_exists('OlmecLowStockCoreLoader') && is_plugin_active('woocommerce/woo
         new CoreLoader();
     });
 
-    (new CustomWPCLI)->createCommands();
+    (new CustomWPCLI())->createCommands();
 }
