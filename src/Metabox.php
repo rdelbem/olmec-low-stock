@@ -2,18 +2,14 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 use Olmec\LowStock\Stock;
 use Olmec\LowStock\Utils\LoadTemplate;
 
-final class Metabox
+class Metabox
 {
     use LoadTemplate;
 
-    private Stock $stock;
+    public Stock $stock;
 
     public function __construct()
     {

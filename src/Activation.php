@@ -2,10 +2,6 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 final class Activation
 {
     public static function run(): void

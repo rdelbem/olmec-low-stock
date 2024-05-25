@@ -2,13 +2,9 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 use Olmec\LowStock\Utils\Logger;
 
-final class Notification
+class Notification
 {
     public function enqueueNotification($categoryId, $categoryName)
     {
