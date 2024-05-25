@@ -2,15 +2,11 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 use Olmec\LowStock\Notification;
 
-final class Stock
+class Stock
 {
-    private Notification $notification;
+    public Notification $notification;
 
     public function __construct()
     {

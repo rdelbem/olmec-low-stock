@@ -2,13 +2,9 @@
 
 namespace Olmec\LowStock;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 use Olmec\LowStock\Utils\LoadTemplate;
 
-final class CategoryField
+class CategoryField
 {
     use LoadTemplate;
 
