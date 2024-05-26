@@ -32,6 +32,7 @@
     "tests": "vendor/bin/pest",
     "lint": "vendor/bin/phpcs **/*.php",
     "lint-fix": "vendor/bin/phpcbf **/*.php",
-    "wpcli": "cd ../.. && docker-compose run --rm wpcli wp"
+    "wpcli": "cd ../.. && docker-compose run --rm wpcli wp",
+    "generate:stable": "php generate-stable.php"
   }
 }
