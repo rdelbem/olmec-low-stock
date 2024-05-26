@@ -26,8 +26,8 @@ jobs:
 
       - name: Commit and push dist folder to dist branch
         run: |
-          git config --global user.name "rdelbem"
-          git config --global user.email "rodrigodelbem@gmail.com"
+          git config user.name "rdelbem"
+          git config user.email "rodrigodelbem@gmail.com"
           git checkout --orphan dist
           git --work-tree=dist add --all
           git --work-tree=dist commit -m "Add files to dist branch"
