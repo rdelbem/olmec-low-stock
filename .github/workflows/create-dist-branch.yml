@@ -25,10 +25,12 @@ jobs:
         run: php generate-stable.php
 
       - name: Commit and push dist folder to dist branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git config user.name "rdelbem"
           git config user.email "rodrigodelbem@gmail.com"
           git checkout --orphan dist
           git --work-tree=dist add --all
           git --work-tree=dist commit -m "Add files to dist branch"
-          git push origin HEAD:dist --force
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/rdelbem/olmec-low-stock.git HEAD:dist --force
