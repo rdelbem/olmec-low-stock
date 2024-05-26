@@ -48,6 +48,17 @@ composer run tests
 ## Code patterns
 Always try to encapsulate and separate concerns. If a piece of code displays markup, move it to a template file and render it using the available tools. Keep casing consistent with PSR directives. Hooks are how we load our app inside WordPress, acting as an API we interact with. Therefore, we leverage hooks in a loader class, which is responsible for booting our app. Side effects (such as sending an email) should be queued and processed in a non-blocking way. Not following this pattern can lead to severe consequences during periods of heavy load. Indexation is better than nesting loops. Always find a way to pull data and store it in an indexed manner. For instance, we do not need to collect all categories and then loop through all products. This should be done only once, when the plugin is activated. After that, we leverage hooks to manipulate a simple array that we can query by index.
 
+## For developers and WordPress plugin reviewers
+Developers who wish to contribute are encouraged to fork this repo and submit a pull request. **The sections below provide clarity on this plugin's development flow.**
+
+### 1. Stable plugin generation
+- **Automated Stable Version Generation**: This repository features a GitHub workflow that auto-generates a stable branch based on the latest main branch. Whenever code is merged into the main branch, the stable version is updated accordingly.
+
+- **Manual Stable Version Generation**: Alternatively, you can clone this repo, run `composer install`, and then `composer run generate:stable`. This will produce a stable version derived from your current working branch. It will be saved as a zip file in the directory above.
+
+### 2. WordPress code reviewers
+Please note that this repo serves as the development version of what we intend to offer to WordPress users. The end-users receive a stable, compiled version without any development-related files or folders. **Given this, it's advisable to review both this development repository, and the stable version.**
+
 ## License
 
 This WordPress plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
